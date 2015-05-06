@@ -70,7 +70,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
 	@Override
 	public void run() {
+		long start = System.nanoTime();
 		initialize();
+		
 
 		// Main game loop.
 		while (true) {
@@ -92,6 +94,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 			}
 
 		}
+		
+		long delta = System.nanoTime() - start;
+		System.err.println("Load time (ms): "+(delta/1000000L));
 
 	}
 
